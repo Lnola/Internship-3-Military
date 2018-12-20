@@ -17,7 +17,7 @@ namespace Internship_3_Military
         public override void VehiclePrint()
         {
             base.VehiclePrint();
-            Console.WriteLine(TotalFuelUsed);
+            Console.WriteLine("Total Fuel Used: "+TotalFuelUsed);
         }
 
         public void Move(int distance,int numberOfSoldiers)
@@ -27,7 +27,7 @@ namespace Internship_3_Military
             var random = new Random();
             var distanceAfterObstacles = distance;
 
-            for (var i = 10; i < distance; i=i+10)
+            for (var i = 10; i < distance; i+=10)
             {
                 var randomNumber = random.Next(1, 101);
                 if (randomNumber <= 30)
@@ -35,6 +35,9 @@ namespace Internship_3_Military
             }
 
             TotalFuelUsed = distanceAfterObstacles * FuelConsumption;
+
+            Console.WriteLine("\nTotal distance after all obstacles: " + distanceAfterObstacles);
+            Console.WriteLine();
         }
     }
 }

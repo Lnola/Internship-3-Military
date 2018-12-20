@@ -23,7 +23,8 @@ namespace Internship_3_Military
             myTank.VehiclePrint();
 
             var myWarship=new Warship(200,20);
-
+            myWarship.Swim(warshipDistance,numberOfSoldiers);
+            myWarship.VehiclePrint();
         }
     }
 }
