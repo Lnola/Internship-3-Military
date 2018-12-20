@@ -16,6 +16,7 @@ namespace Internship_3_Military
 
         public override void VehiclePrint()
         {
+            Console.WriteLine("---Warship---\n");
             base.VehiclePrint();
             Console.WriteLine("Total Fuel Used: " + TotalFuelUsed);
         }
@@ -33,12 +34,12 @@ namespace Internship_3_Military
             {
                 var randomNumber = random.Next(1, 101);
                 if (randomNumber <= 50)
-                    distanceAfterObstacles += 6;
+                    distanceAfterObstacles += 6;          //I assumed that the boat goes 3 km back and than continues the journey so it's 3+3
             }
 
             TotalFuelUsed = distanceAfterObstacles * FuelConsumption;
 
-            Console.WriteLine("\nTotal distance after all obstacles: " + distanceAfterObstacles);
+            Console.WriteLine("\nTotal Warship distance after all obstacles: " + distanceAfterObstacles);
             Console.WriteLine();
         }
     }
