@@ -6,24 +6,27 @@ namespace Internship_3_Military
 {
     class Amfibia : Vehicle, IDriveable, ISwimmable
     {
-        public Amfibia(Guid id, double weight, int averageSpeed, double fuelConsumption, int capacity, double totalFuelUsed) : base(id,
-            weight, averageSpeed, fuelConsumption, capacity)
+        public Amfibia(double weight, int averageSpeed) : base(
+            weight, averageSpeed)
         {
             Capacity = 20;
             TotalFuelUsed = 70;
-            TotalFuelUsed = totalFuelUsed;
         }
 
         public double TotalFuelUsed { get; set; }
 
-        public bool Move(int distance)
+        public override void VehiclePrint()
         {
-            return true;
+            base.VehiclePrint();
+            Console.WriteLine(TotalFuelUsed);
         }
 
-        public bool Swim(int distance)
+        public void Move(int distance,int number)
         {
-            return true;
+        }
+
+        public void Swim(int distance,int numberOfSoldiers)
+        {
         }
     }
 }

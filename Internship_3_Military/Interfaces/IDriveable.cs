@@ -6,6 +6,6 @@ namespace Internship_3_Military
 {
     interface IDriveable
     {
-        bool Move(int distance);
+        void Move(int distance, int numberOfSoldiers);
     }
 }

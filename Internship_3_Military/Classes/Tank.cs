@@ -6,19 +6,35 @@ namespace Internship_3_Military
 {
     class Tank : Vehicle, IDriveable
     {
-        public Tank(Guid id, double weight, int averageSpeed, double fuelConsumption, int capacity, double totalFuelUsed) : base(id,
-            weight, averageSpeed, fuelConsumption, capacity)
+        public Tank(double weight, int averageSpeed) : base(weight, averageSpeed)
         {
             Capacity = 6;
-            TotalFuelUsed = 30;
-            TotalFuelUsed = totalFuelUsed;
+            FuelConsumption = 30;
         }
 
-        public double TotalFuelUsed { get; set; }
+        public int TotalFuelUsed { get; set; }
 
-        public bool Move(int distance)
+        public override void VehiclePrint()
         {
-            return true;
+            base.VehiclePrint();
+            Console.WriteLine(TotalFuelUsed);
+        }
+
+        public void Move(int distance,int numberOfSoldiers)
+        {
+            distance = TotalDistance(distance, numberOfSoldiers);
+
+            var random = new Random();
+            var distanceAfterObstacles = distance;
+
+            for (var i = 10; i < distance; i=i+10)
+            {
+                var randomNumber = random.Next(1, 101);
+                if (randomNumber <= 30)
+                    distanceAfterObstacles += 10;
+            }
+
+            TotalFuelUsed = distanceAfterObstacles * FuelConsumption;
         }
     }
 }

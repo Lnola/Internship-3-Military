@@ -6,20 +6,28 @@ namespace Internship_3_Military
 {
     abstract class Vehicle
     {
-        protected Vehicle(Guid id, double weight, int averageSpeed, double fuelConsumption, int capacity)
+        protected Vehicle(double weight, int averageSpeed)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Weight = weight;
             AverageSpeed = averageSpeed;
-            FuelConsumption = fuelConsumption;
-            Capacity = capacity;
         }
 
         public Guid Id { get; set; }
         public double Weight { get; set; }
         public int AverageSpeed { get; set; }
-        public double FuelConsumption { get; set; }
-        public double Capacity { get; set; }
+        public int FuelConsumption { get; set; }
+        public int Capacity { get; set; }
+
+        public int TotalDistance(int distance,int numberOfSoldiers)
+        {
+            var numberOfTripsAsDouble = (double) numberOfSoldiers / Capacity;
+            var numberOfTrips = (int) Math.Ceiling(numberOfTripsAsDouble);
+
+            var totalDistance = distance * (numberOfTrips * 2 - 1);
+
+            return totalDistance;
+        }
 
         public virtual void VehiclePrint()
         {
